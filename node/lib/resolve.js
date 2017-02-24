@@ -60,7 +60,7 @@ function scanJsFiles(path) {
 			finder.emit('bowerfile', file);
 		}
 	}).on('error', function(path, err) {
-		console.log(err);
+		console.warn('Exception: ' + err);
 		process.exit(1);
 	});
 	return finder;
