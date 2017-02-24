@@ -92,6 +92,11 @@ if(config.ignorefile) {
   }
 }
 
+if (config.nodepath && !fs.existsSync(config.nodepath)) {
+  console.warn('Could not find folder: ' + config.nodepath);
+  process.exit(1);
+}
+
 events.on('load-js-repo', function() {
   (config.jsrepo ? 
     (config.jsrepo.match(/^https?:\/\//) ?
