@@ -59,6 +59,9 @@ function scanJsFiles(path) {
 		if (file.match(/\/bower.json$/)) {
 			finder.emit('bowerfile', file);
 		}
+	}).on('error', function(path, err) {
+		console.log(err);
+		process.exit(1);
 	});
 	return finder;
 }
